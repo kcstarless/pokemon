@@ -1,0 +1,123 @@
+@use '../mixins' as *;
+
+.game-loading-bar {
+    @include size-elements(100%, 60px);
+    // justify-content: end;
+    background-color: rgb(37, 26, 26);
+    border-top: solid 3px black;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+
+    @include media(desktop) {
+        // max-width: 70rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .loading-bar-fill {
+        height: 60px;
+        transition: width 0.5s ease-out;
+    }
+    .loading-bar-label {
+        position: absolute;
+        top: -35px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: var(--font-size-xxxxl);
+    }
+}
+
+.game-option-bar {
+    @include size-elements(100%, 60px);
+    @include center-elements;
+    @include fadeInScale;
+    position: relative;
+    // bottom: 0; 
+    // backdrop-filter: brightness(70%);
+    z-index: 2;
+    justify-content: end;
+    gap: var(--space-l);
+    padding-right: var(--space-m);
+    // border: var(--border-light);
+    cursor: pointer;  
+
+    @include media(desktop) {
+        max-width: 70rem;
+        width: 100%;
+        margin: 0 auto;
+    }
+    .options {
+        margin-left: auto; /* This pushes the other items to the right */
+        display: flex;
+        gap: var(--space-m); /* Optional: Adds space between the items */
+    }
+    img {
+        filter: brightness(150%);
+        @include size-elements(30px, 30px);
+        @include media(tablet) { @include size-elements(40px, 40px); }
+        @include media(desktop) { @include size-elements(50px, 50px); }
+    }
+
+    .help {
+        cursor: pointer;
+        position: fixed; /* Fixes the element relative to the viewport */
+        margin-right: 20px;
+        // left: 50%; /* Center the element horizontally */
+        transform: translateX(-50%) translateY(55%);  /* Adjust for exact centering */
+        width: 130px;
+        height: auto;
+        bottom: -50%; /* Initially hide the element below the viewport */
+        opacity: 1; /* Initially hide it */
+        visibility: hidden; /* Initially make it invisible */
+        transition: bottom 2s ease-out, visibility 1s;  /* Smooth transition for both opacity and sliding */
+        z-index: 3;
+        @include media(tablet) { width: 160px; };
+        @include media(desktop) { width: 200px;; };
+        img {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+        .help-message {
+            position: absolute;
+            width: 95px;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            border: 2px solid black;
+            background-color: var(--color-primary);
+            color: white;
+            // font-size: var(--font-size-l);
+            box-shadow: var(--shadow-large);
+            left: 60%;
+            top: -20%;
+            @include media(tablet) {
+                width: 130px;
+                font-size: var(--font-size-xl);
+            };
+            @include media(desktop) { 
+                width: 180px;
+                font-size: var(--font-size-xxxl);
+             };
+        }
+    
+        &.show {
+            bottom: 0; /* Move the element to the bottom of the viewport */
+            opacity: 1; /* Make the element visible */
+            visibility: visible; /* Ensure it's visible */
+            transform: translateX(-50%) translateY(55%); 
+            transition: bottom 1s ease-out;
+        }
+    }
+    
+    .power {
+        display: inline-flex;
+        justify-content: start; /* Align items to the start (left) of this container */
+        align-items: center; /* Optional: Align content vertically */
+        margin-left: 0; /* Align to the left */
+        padding-left: var(--space-m);
+        cursor: pointer;  
+    }
+    
+}

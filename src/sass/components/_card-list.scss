@@ -1,0 +1,132 @@
+@use '../mixins' as *;
+
+
+.card-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-l);
+    padding: var(--space-s);
+    justify-items: center;
+    z-index: 2;
+
+    @include fadeInScale;
+    @include media(desktop) {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        max-width: 70rem;
+        margin: 0 auto;
+    }
+    @include media(tablet) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.card {
+    perspective: 1000px;
+    width: 100px;
+    height: 120px;
+    cursor: pointer;
+    // border-radius: var(--border-radius);
+    img { width: 80px; };
+    
+    @include media(desktop) {
+        width: 200px;
+        height: 250px;
+        img { width: 150px; }
+    }
+    @include media(tablet) {
+        width: 180px;
+        height: 220px;
+        img { width: 140px; }
+    }
+
+    &.flipped .card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Create the front and back faces of the card */
+.card-inner {
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-card);
+    border: solid 2px white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d; /* Ensures the child elements (front/back) are rendered in 3D space */
+    transition: transform 0.5s ease; /* Smooth transition for rotation */
+    @include media(desktop) {
+        border: solid 5px rgb(255, 255, 255);
+    }
+    @include media(tablet) {
+        border: solid 4px white;
+    }
+  }
+  
+  /* Define the front of the card */
+  .card-front {
+    position: absolute;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../assets/bg2.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    backface-visibility: hidden; /* Ensures the front is hidden when the card flips */
+  }
+  
+  /* Define the back of the card (it can have a different background) */
+  .card-back {
+    // box-shadow: var(--shadow-card);
+    position: absolute;
+    border: 1px solid black;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-primary); /* Or any different background for the back */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg); /* Initially position the back side hidden */
+    backface-visibility: hidden; /* Ensures the back is hidden when facing front */
+  }
+  
+  /* Hover effect: rotate the card */
+  .card-front:hover {
+    img {
+        @include fadeInScale;
+    }
+    transform: rotateY(360deg); /* Rotate the card when hovered */
+  }
+
+  .card-title {
+    position: absolute;
+    border: var(--border);
+    padding-left: 10px;
+    padding-right: 10px;
+    top: -10px;
+    left: 0px;
+    max-width: 95px;
+    box-shadow: var(--shadow-btn);
+    transform: skew(20deg);
+    background-color: var(--color-primary);
+    font-size: var(--font-size-xs);
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+
+    @include media(desktop) {
+        font-size: var(--font-size-m);
+        top: 10px;
+        left: 10px;
+        max-width: 170px;
+    }
+    @include media(tablet) {
+        font-size: var(--font-size-s);
+        top: 10px;
+        left: 10px;
+        max-width: 123px;
+    }
+}

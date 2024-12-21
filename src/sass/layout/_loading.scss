@@ -1,0 +1,29 @@
+@use '../mixins' as *;
+
+.loading-screen {
+    @include center-elements;
+    @include size-elements(100%, 100vh);
+    background-color: black;
+}
+
+.img-pokeball {
+    width: 30%;
+    min-width: 150px;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    animation: glow 3s infinite alternate; /* Apply the animation */
+}
+
+/* Keyframes for the animated glowing effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.1); /* Light glow at start */
+    }
+    50% {
+        box-shadow: 0 0 100px 5px rgba(255, 215, 0, 1); /* Stronger glow in the middle */
+    }
+    100% {
+        box-shadow: 0 0 10px 5px rgba(255, 215, 0, 0.1); /* Light glow at the end */
+    }
+}

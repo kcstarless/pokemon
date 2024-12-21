@@ -1,0 +1,52 @@
+@use '../mixins' as *;
+
+.btn {
+    // font-size: 100px;
+    box-shadow: var(--shadow-btn);
+    cursor: pointer;
+
+    &.startgame{
+        @include fadeInScale(0.3s);
+        // box-shadow: var(--shadow-btn);
+        @include size-elements(250px, 50px); 
+        border-radius: var(--border-radius);
+        font-size: var(--font-size-xxxl);
+        border: none;
+        background-color: var(--color-secondary);
+
+        @include media(desktop) { 
+            @include size-elements(350px, 90px);
+            font-size: var(--font-size-xxxxxl);
+        }
+
+        @include media(tablet) { 
+            @include size-elements(300px, 70px);
+            font-size: var(--font-size-xxxxl);
+        }
+        &:hover {
+            background-color: rgb(245, 231, 176);
+        }
+        &:active {
+            transform: scale(0.95);
+            box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+        }
+    }
+}
+
+
+.empty-btn {
+    // background-color: black;
+    @include size-elements(250px, 50px); 
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-xxxl);
+
+    @include media(desktop) { 
+        @include size-elements(350px, 90px);
+        font-size: var(--font-size-xxxxxl);
+    }
+
+    @include media(tablet) { 
+        @include size-elements(300px, 70px);
+        font-size: var(--font-size-xxxxl);
+    }
+}

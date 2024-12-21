@@ -1,0 +1,17 @@
+// Use Sass modules (variables, mixins, etc.)
+@use "variables";  
+@use "resets";      
+
+// Layout
+@use "./layout/container";
+@use "./layout/content";
+@use "./layout/loading";
+@use "./layout/header";
+@use "./layout/footer";
+
+// Components
+@use "./components/btn";
+@use "./components/card-list";
+
+// Import external resources (Google Fonts) 
+@import url('https://fonts.googleapis.com/css2?family=Bangers&display=swap');
