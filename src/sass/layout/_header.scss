@@ -127,7 +127,7 @@
         border-radius: var(--border-radius);
         padding: 8px;
         @include fadeInScale(0.5s);
-        // @include media(mobile) { display: none; };
+        @include media(mobile) { display: none; };
     }
     
     .game-info-speach-bubble:after {
