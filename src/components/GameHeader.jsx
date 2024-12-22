@@ -12,10 +12,12 @@ import imageSuccess from '../assets/success.png';
 // GameInfo component
 const GameInfo = ({caught}) => {
     return (
+            <>
             <div className="game-info" key={caught ? 'success' : 'fail'}> 
                 <div className="game-info-image"><img src={caught ? imageSuccess : imageFail} alt="helper Image" /></div>
                 <div className="game-info-speach-bubble">{caught ? gameMessage.success : gameMessage.fail}</div>
             </div>
+            </>
         )
 }
 

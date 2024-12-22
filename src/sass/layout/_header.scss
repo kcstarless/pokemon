@@ -4,8 +4,8 @@
     @include center-elements;
     justify-content: space-between;
     flex-direction: row;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 10px;
+    // padding-bottom: 10px;
     padding-left: 10px;
     padding-right: 10px;
     // border: var(--border-light);
@@ -18,9 +18,15 @@
     }
 
     @include media(desktop) {
+        padding-top: 30px;
+        padding-bottom: 30px;
         max-width: 70rem;
         width: 100%;
         margin: 0 auto;
+    }
+    @include media(desktop) {
+        padding-top: 20px;
+        padding-bottom: 20px;
     }
 }
 
@@ -50,13 +56,23 @@
         background-size: cover;
         border: none;
         background-color: transparent;
-        width: 270px;
-        height: 130px;
-        font-size: var(--font-size-xxxl);
+        width: 180px;
+        height: 100px;
+        font-size: var(--font-size-xl);
         align-items: center;
         color: var(--color-primary);
         text-shadow: var(--shadow-btn);
         @include fadeInScale;
+        @include media(desktop) {
+            font-size: var(--font-size-xxxl);
+            width: 270px;
+            height: 130px;
+        }
+        @include media(tablet) {
+            font-size: var(--font-size-xxl);
+            width: 240px;
+            height: 100px;
+        }
     }
 }
 
@@ -82,9 +98,13 @@
     border-radius: 50%;
     background-color: white;
     border: solid 1px black;
-
+    // position: absolute;
+    // left: 50%;
+    // top: 50%;
+    // z-index: 9999;
     @include fadeInScale(0.2s);
-    @include media(mobile) { display: none; };
+    // @include media(mobile) { display: none; };
+
     .game-info-image {
         width: 100px;
         filter: brightness(100%);
