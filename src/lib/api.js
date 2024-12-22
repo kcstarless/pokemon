@@ -2,6 +2,8 @@ import axios from 'axios';
 import { POKEMON_API_URL } from './constant';
 import { setSessionstorageItem, getSessionstorageItem } from './storage';
 
+//* API calls to fetch pokemon data */
+
 // Fetch all available pokemons
 export const fetchPokemonData = async () => {
     try {

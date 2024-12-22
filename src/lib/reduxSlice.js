@@ -2,6 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { setLocalstorageItem, getLocalstorageItem } from "./storage";
 import { DECK_SIZE } from "./constant";
 
+//* State magement for game setup and game data */
+
+// Game initialization and setup slice
 export const initGameSlice = createSlice(
     {
         name: 'game_setup',
@@ -39,7 +42,7 @@ export const initGameSlice = createSlice(
 export const { setInitialized, setLoaded, setStarted, setProgressBar, setGameSize, setPool, resetGameSetup, toggleSound, toggleMusic } = initGameSlice.actions;
 export const initGameSliceReducer = initGameSlice.reducer;
 
-
+// Game data slice
 export const gameDataSliced = createSlice (
     {
         name: 'game_data',

@@ -32,7 +32,7 @@ export const playSound = async (type, vol = 0.5) => {
     sound.volume = vol;
 }
 
-//** Custom hook for playing music */
+// Custom hook for different types music
 export const useMusicToggle = () => {
     const isMusicOn = useSelector((state) => state.game_setup.music);
     const started = useSelector((state) => state.game_setup.started);

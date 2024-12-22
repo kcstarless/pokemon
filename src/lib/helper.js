@@ -3,6 +3,8 @@ import { DECK_SIZE } from '../lib/constant';
 import store from '../lib/reduxStore'; // Import your store
 import { resetGameSetup, resetGameData } from '../lib/reduxSlice'; // Import the resetGameSetup action
 
+//* Helper function for game logic */
+
 // Shuffles the array
 export function shuffleArray(array) {
     // Create a shallow copy of the input array to avoid mutation
@@ -40,6 +42,7 @@ export function exitGameSequence() {
     console.log("Exit game!");
 }
 
+// Resets game data and setup.
 export function resetGame() {
     store.dispatch(resetGameSetup());
     store.dispatch(resetGameData());

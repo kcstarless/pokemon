@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { setLoaded, setProgressBar } from '../lib/reduxSlice';
 
+//* BarLoading component 
+//  - Loads loading bar in the footer section only if progressBar is active. */
+
 const BarLoading = () => {
     const [progress, setProgress] = useState(0);
     const [color, setColor] = useState('var(--color-alert)');
@@ -18,11 +21,11 @@ const BarLoading = () => {
             const timer = setTimeout(() => { setProgress(progress + 1) }, 40);
             return () => clearTimeout(timer);
         }
-
+        
         if (progress === 100) {
-            setColor('var(--color-confirm)');
+            setColor('var(--color-confirm)'); // Change color of the bar when progress is 100;
             const delayTimer = setTimeout(() => {
-                dispatch(setProgressBar(false));
+                dispatch(setProgressBar(false)); // Hide progress bar
                 dispatch(setLoaded());
                 // completeRef.current = true;
             }, 1500);

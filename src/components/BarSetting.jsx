@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { resetGame } from '../lib/helper';
 import { playSound } from '../lib/sound';
+import { helpMessage } from '../lib/constant';
 
 import iconHelp from '../assets/icons/help.svg';
 import iconMusicOn from '../assets/icons/music_on.svg';
@@ -29,12 +30,8 @@ const BarSetting = () => {
     const [showHelp, setShowHelp] = useState(false);
 
     useMusicToggle();  // Use custom hoook
-
-    const helpMessage = {
-        slider: "Grab N Slide!",
-        pick: "No pick 2X!!"
-    }
-
+    
+    // Buttons click handlers
     const handleMusicToggle = () => {
         if (sound) { playSound('button') };
         dispatch(toggleMusic());
@@ -47,7 +44,6 @@ const BarSetting = () => {
         if (sound) { playSound('button') };
         setShowHelp(prevState => !prevState); 
     }
-
     const handlePowerClick = () => {
         console.log("power clicked");
         if (sound) { playSound('power') };

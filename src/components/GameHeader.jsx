@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import inGameMessage from '../lib/gameInfo';
+import { gameMessage } from '../lib/constant';
 
 import imageLogo from '../assets/logo.png';
 import imageFail from '../assets/fail.png';
@@ -14,7 +14,7 @@ const GameInfo = ({caught}) => {
     return (
             <div className="game-info" key={caught ? 'success' : 'fail'}> 
                 <div className="game-info-image"><img src={caught ? imageSuccess : imageFail} alt="helper Image" /></div>
-                <div className="game-info-speach-bubble">{inGameMessage(caught ? 'success' : 'fail')}</div>
+                <div className="game-info-speach-bubble">{caught ? gameMessage.success : gameMessage.fail}</div>
             </div>
         )
 }
