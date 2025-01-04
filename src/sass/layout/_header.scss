@@ -114,7 +114,7 @@
     
         @include media(tablet) { @include size-elements(90px, auto); }
     
-        @include media(mobile) { @include size-elements(70px, auto); }
+        @include media(mobile) { @include size-elements(60px, auto); }
     }
 
     .game-info-speach-bubble{
