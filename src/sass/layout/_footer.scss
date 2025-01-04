@@ -81,14 +81,17 @@
             height: auto;
         }
         .help-message {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             position: absolute;
-            width: 95px;
+            width: 110px;
             padding: 10px;
             border-radius: var(--border-radius);
             border: 2px solid black;
             background-color: var(--color-primary);
             color: white;
-            // font-size: var(--font-size-l);
+            font-size: var(--font-size-l);
             box-shadow: var(--shadow-large);
             left: 60%;
             top: -20%;

@@ -27,6 +27,7 @@ export const playSound = async (type, vol = 0.5) => {
     if (type === 'power') { sound = new Audio(startSound); }
     if (type === 'button') { sound = new Audio(buttonSound); }
     if (type === 'intense') { sound = new Audio(intenseMusic); }
+    if (type === 'shortTitle') { sound = new Audio(shortTitleMusic); }
 
     await sound.play();
     sound.volume = vol;
@@ -88,11 +89,11 @@ export const useMusicToggle = () => {
 
                 if (started) {
                     await delay(2000); 
-                    if (isBestScore) {
-                        await playAudio(intenseAudioRef.current); // plays different music if current score is best score
-                    } else {
+                    // if (isBestScore) {
+                    //     await playAudio(intenseAudioRef.current); // plays different music if current score is best score
+                    // } else {
                         await playAudio(battleAudioRef.current);
-                    }
+                    // }
                     
                 } else {
                     await playLoadedAudio(shortTitleAudioRef.current); // Plays once
@@ -109,7 +110,7 @@ export const useMusicToggle = () => {
 
         return () => { stopCurrentMusic(); }; // clean up
 
-    }, [isMusicOn, started, isBestScore]); 
+    }, [isMusicOn, started]); 
 
     return {};
 };

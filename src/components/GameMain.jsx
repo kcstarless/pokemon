@@ -5,6 +5,7 @@ import { setCurrentScore, resetCurrentScore, setBestScore, resetGameData, resetG
 import { playSound } from '../lib/sound';
 
 import CardList from './CardList';
+import { delay } from '../lib/helper';
 
 //* Main component 
 //  - Loads CardList component.
@@ -30,8 +31,9 @@ const GameMain = () => {
     }
 
     // Check if all pokemon is caught
-    function checkAllCaught() {
+    const checkAllCaught = async () => {
         if ((currentScore + 1) === poolSize) {
+            // if (sound) { playSound('shortTitle') };
             const userConfirmed = window.confirm("Congratulations! Good Memory. Increase pokemons?");
             if (userConfirmed) {
                 resetGame();
