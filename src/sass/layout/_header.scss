@@ -56,9 +56,9 @@
         background-size: cover;
         border: none;
         background-color: transparent;
-        width: 180px;
-        height: 100px;
-        font-size: var(--font-size-xl);
+        width: 150px;
+        height: 80px;
+        font-size: var(--font-size-l);
         align-items: center;
         color: var(--color-primary);
         text-shadow: var(--shadow-btn);
@@ -85,7 +85,7 @@
         // Media queries for different screen sizes
         @include media(desktop) { @include size-elements(300px, auto); }
     
-        @include media(tablet) { @include size-elements(250px, auto); }
+        @include media(tablet) { @include size-elements(200px, auto); }
     
         @include media(mobile) { @include size-elements(150px, auto); }
     }    
@@ -112,9 +112,9 @@
         // Media queries for different screen sizes
         @include media(desktop) { @include size-elements(100px, auto); }
     
-        @include media(tablet) { @include size-elements(75px, auto); }
+        @include media(tablet) { @include size-elements(90px, auto); }
     
-        @include media(mobile) { @include size-elements(35px, auto); }
+        @include media(mobile) { @include size-elements(70px, auto); }
     }
 
     .game-info-speach-bubble{
@@ -127,7 +127,7 @@
         border-radius: var(--border-radius);
         padding: 8px;
         @include fadeInScale(0.5s);
-        @include media(mobile) { display: none; };
+        // @include media(mobile) { display: none; };
     }
     
     .game-info-speach-bubble:after {
