@@ -6,10 +6,13 @@
       @media (min-width: 70rem) { @content; }
     }
     @else if $query == tablet {
-        @media (min-width: 37.5rem) and (max-width: 70rem) { @content; }  // For tablet (<= 1200px)
+        @media (min-width: 50rem) and (max-width: 70rem) { @content; }  // For tablet (<= 1200px)
     }
     @else if $query == mobile {
-        @media (max-width: 37.5rem) { @content; }  // For mobile (<= 600px)
+        @media (max-width: 50rem) { @content; }  // For mobile (<= 600px)
+    }
+    @else if $query == wide {
+        @media (max-height: 50rem) and (min-width: 70rem) { @content; }  // For desktop (>= 1200px)
     }
 }
 
