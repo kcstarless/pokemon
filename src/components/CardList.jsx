@@ -62,7 +62,7 @@ const CardList = ({ handleCardClick }) => {
         await delay(500); // Ensure all cards are flipped before flipping back
 
         // Prepare new preDeck
-        // setPreDeck(shuffleAndSlicePool(currentPool));
+        setPreDeck(shuffleAndSlicePool(currentPool));
         await delay(1000);
         // Flip all cards to front sequentially, backwards 
         for (let index = deck.length; index >= 0; index--) {
