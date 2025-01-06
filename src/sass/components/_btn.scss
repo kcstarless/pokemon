@@ -5,7 +5,7 @@
     box-shadow: var(--shadow-btn);
     cursor: pointer;
 
-    &.startgame{
+    &.startgame {
         @include fadeInScale(0.3s);
         // box-shadow: var(--shadow-btn);
         @include size-elements(250px, 50px); 
@@ -23,16 +23,19 @@
             @include size-elements(300px, 70px);
             font-size: var(--font-size-xxxxl);
         }
+
         &:hover {
             background-color: rgb(245, 231, 176);
         }
+
         &:active {
             transform: scale(0.95);
+            -webkit-transform: scale(0.95); /* For Safari/Older WebKit-based browsers */
             box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2);
+            -webkit-box-shadow: inset 0 0 5px rgb(0, 0, 0, 0.2); /* For Safari/Older WebKit-based browsers */
         }
     }
 }
-
 
 .empty-btn {
     // background-color: black;
