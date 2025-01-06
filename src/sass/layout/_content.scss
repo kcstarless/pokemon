@@ -37,13 +37,13 @@
     .custom-slider .MuiSlider-track {
         height: 10px;
         background-color: #bebebec0;
-        border: none;        
+        border: none;
     }
     .custom-slider .MuiSlider-rail {
         height: 10px;
         background-color: #bebebec0;
-        // border: none;   
-        opacity: 1;     
+        // border: none;
+        opacity: 1;
     }
     .custom-slider .MuiSlider-thumb {
         height: 40px;
@@ -51,6 +51,7 @@
         background-color: #F1CF00;
         // border: solid 2px black;
         filter: brightness(200%);
+        -webkit-filter: brightness(200%); /* For Safari/Older WebKit-based browsers */
     }
 
     .pokemon-size-label {
@@ -59,11 +60,11 @@
         text-align: center;
         font-size: var(--font-size-xxxl);
         text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4);
+        -webkit-text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6), 0 0 15px rgba(255, 255, 255, 0.4); /* For Safari/Older WebKit-based browsers */
 
         @include media(desktop) {
             font-size: var(--font-size-xxxxxl);
         }
         // border: solid 2px black;
-       
     }
 }
