@@ -6,10 +6,13 @@
     flex-direction: column;
     justify-content: space-between;
     background-image: url('../assets/bg.jpg');
+    -webkit-background-image: url('../assets/bg.jpg'); /* For Safari/Older WebKit-based browsers */
     background-size: cover;
+    -webkit-background-size: cover; /* For Safari/Older WebKit-based browsers */
     background-position: center;
+    -webkit-background-position: center; /* For Safari/Older WebKit-based browsers */
     min-height: 100vh;  /* Makes sure the container takes at least the full viewport height */
-    height: auto; 
+    height: auto;
 }
 
 .dark-overlay {
@@ -19,9 +22,11 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.2);  // Dark semi-transparent overlay
+    -webkit-background-color: rgba(0, 0, 0, 0.2); /* For Safari/Older WebKit-based browsers */
     z-index: 1;  // Ensures it's above other content
     height: 100vh;
 }
+
 .darker-overlay {
     position: fixed;  // Position it above the content
     top: 0;
@@ -29,6 +34,6 @@
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.5);  // Dark semi-transparent overlay
+    -webkit-background-color: rgba(0, 0, 0, 0.5); /* For Safari/Older WebKit-based browsers */
     z-index: 1;  // Ensures it's above other content
 }
-
