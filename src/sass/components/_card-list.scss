@@ -1,6 +1,5 @@
 @use '../mixins' as *;
 
-
 .card-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -19,13 +18,14 @@
     @include media(tablet) {
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
-    @include media(wide){
+    @include media(wide) {
         grid-template-columns: repeat(6, 1fr);
     }
 }
 
 .card {
     perspective: 1000px;
+    -webkit-perspective: 1000px; /* For Safari/Older WebKit-based browsers */
     height: 120px;
     width: 100px;
     
@@ -50,30 +50,34 @@
     }
     &.flipped .card-inner {
         transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg); /* For Safari/Older WebKit-based browsers */
     }
-
 }
 
 /* Create the front and back faces of the card */
 .card-inner {
     border-radius: var(--border-radius);
+    -webkit-border-radius: var(--border-radius); /* For Safari/Older WebKit-based browsers */
     box-shadow: var(--shadow-card);
+    -webkit-box-shadow: var(--shadow-card); /* For Safari/Older WebKit-based browsers */
     border: solid 2px white;
     width: 100%;
     height: 100%;
     position: absolute;
     transform-style: preserve-3d; /* Ensures the child elements (front/back) are rendered in 3D space */
+    -webkit-transform-style: preserve-3d; /* For Safari/Older WebKit-based browsers */
     transition: transform 0.5s ease; /* Smooth transition for rotation */
+    -webkit-transition: -webkit-transform 0.5s ease; /* For Safari/Older WebKit-based browsers */
+    
     @include media(desktop) {
         border: solid 5px rgb(255, 255, 255);
     }
     @include media(tablet) {
         border: solid 4px white;
     }
-  }
-  
-  /* Define the front of the card */
-  .card-front {
+}
+
+.card-front {
     position: absolute;
     border: 1px solid black;
     display: flex;
@@ -86,10 +90,10 @@
     width: 100%;
     flex-direction: column;
     backface-visibility: hidden; /* Ensures the front is hidden when the card flips */
-  }
-  
-  /* Define the back of the card (it can have a different background) */
-  .card-back {
+    -webkit-backface-visibility: hidden; /* For Safari/Older WebKit-based browsers */
+}
+
+.card-back {
     // box-shadow: var(--shadow-card);
     position: absolute;
     border: 1px solid black;
@@ -100,18 +104,21 @@
     justify-content: center;
     align-items: center;
     transform: rotateY(180deg); /* Initially position the back side hidden */
+    -webkit-transform: rotateY(180deg); /* For Safari/Older WebKit-based browsers */
     backface-visibility: hidden; /* Ensures the back is hidden when facing front */
-  }
-  
-  /* Hover effect: rotate the card */
-  .card-front:hover {
+    -webkit-backface-visibility: hidden; /* For Safari/Older WebKit-based browsers */
+}
+
+/* Hover effect: rotate the card */
+.card-front:hover {
     img {
         @include fadeInScale;
     }
     transform: rotateY(360deg); /* Rotate the card when hovered */
-  }
+    -webkit-transform: rotateY(360deg); /* For Safari/Older WebKit-based browsers */
+}
 
-  .card-title {
+.card-title {
     position: absolute;
     border: var(--border);
     padding-left: 10px;
@@ -120,7 +127,9 @@
     left: 0px;
     max-width: 95px;
     box-shadow: var(--shadow-btn);
+    -webkit-box-shadow: var(--shadow-btn); /* For Safari/Older WebKit-based browsers */
     transform: skew(20deg);
+    -webkit-transform: skew(20deg); /* For Safari/Older WebKit-based browsers */
     background-color: var(--color-primary);
     font-size: var(--font-size-xs);
     white-space: nowrap;
